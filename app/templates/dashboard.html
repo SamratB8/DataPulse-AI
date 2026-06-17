@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-4">Developer Dashboard</h2>
+
+<div class="row">
+    <!-- Student Profile -->
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-dark text-white">
+                <h5 class="mb-0">Profile Overview</h5>
+            </div>
+            <div class="card-body">
+                <p class="mb-2"><strong>Username:</strong> <span class="text-primary">{{ user.username }}</span></p>
+                <p class="mb-0"><strong>Archetype Class:</strong> <span class="badge bg-info text-dark">{{ user.archetype }}</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Experience Pools Grid -->
+    <div class="col-md-8 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-secondary text-white">
+                <h5 class="mb-0">Experience Pools</h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center align-items-center h-100">
+                    <div class="col-sm-3 mb-3 mb-sm-0">
+                        <div class="p-3 border rounded bg-light">
+                            <h6 class="text-muted mb-2">Data Eng</h6>
+                            <h3 class="mb-0 text-primary">{{ user.data_engineering_xp }}</h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 mb-3 mb-sm-0">
+                        <div class="p-3 border rounded bg-light">
+                            <h6 class="text-muted mb-2">Machine Learning</h6>
+                            <h3 class="mb-0 text-success">{{ user.machine_learning_xp }}</h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 mb-3 mb-sm-0">
+                        <div class="p-3 border rounded bg-light">
+                            <h6 class="text-muted mb-2">Deep Learning</h6>
+                            <h3 class="mb-0 text-danger">{{ user.deep_learning_xp }}</h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="p-3 border rounded bg-light">
+                            <h6 class="text-muted mb-2">MLOps</h6>
+                            <h3 class="mb-0 text-warning">{{ user.mlops_xp }}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
