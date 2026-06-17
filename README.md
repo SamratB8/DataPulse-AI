@@ -1,6 +1,20 @@
 # DataPulse-AI 📊⚡
 
+[![Development Status](https://img.shields.io/badge/status-work--in--progress-orange)](https://github.com/SamratB8/DataPulse-AI)
+
+> **⚠️ Notice:** This project is currently a **Work in Progress (WIP)**. I am actively developing the core data pipelines, analytical modules, and frontend tracking systems.
+
 A gamified AI/ML study tracker and productivity web application designed for data scientists and developers. DataPulse-AI bridges the gap between structured learning and hands-on coding by tracking domain-specific XP, parsing Jupyter notebooks, and validating mathematical core concepts.
+
+---
+
+## 🛠️ Project Roadmap & Status
+
+* [x] **Phase 1 & 2:** Architecture Setup & Core Database Schema Design (`models.py`)
+* [/] **Phase 3:** Frontend UI Templates & Secure User Authentication Routing *(Currently In Progress)*
+* [ ] **Phase 4 & 5:** Pandas Workflow Pipelines & Analytics Tracking Engine
+* [ ] **Phase 6 & 7:** NumPy Multi-Dimensional Matrix Algebra Validation & Jupyter Notebook Parsing Component
+* [ ] **Phase 8:** MLOps & System Finalization
 
 ---
 
