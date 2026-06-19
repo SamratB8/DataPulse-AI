@@ -35,6 +35,7 @@ DataPulse-AI uses a highly optimized, decoupled **production-grade cloud topolog
                            ▼
     [ Render Server Core ] ◄───────► [ Neon.tech Postgres ]
   (Flask/Pandas Processing Core)       (Permanent Cloud Memory)
+```
 
 ###🛣️ Project Roadmap & Status
 [x] Phase 1 & 2: Decoupled Architecture Setup & Cloud Core Database Schema Design (models.py)
