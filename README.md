@@ -76,11 +76,11 @@ DATAPULSE-AI/
 
 ### 🧰 Tech Stack
 ```text
-**Layer**                           **Technology**
-**Backend Core**                    Flask (Python 3.x)
-**Data Science Engines**            Pandas, NumPy, ijson
-**Database & ORM**                  PostgreSQL / SQLAlchemy ORM (Hosted via Neon.tech)
-**Cloud Infrastructure**            Cloudflare R2 Storage (S3 API Engine)
-**Networking & Gateways**           Cloudflare DNS & Registrar
-**Frontend Foundation**             Semantic HTML5, Custom Adaptive CSS3 Layouts
+Layer                           Technology
+Backend Core                    Flask (Python 3.x)
+Data Science Engines            Pandas, NumPy, ijson
+Database & ORM                  PostgreSQL / SQLAlchemy ORM (Hosted via Neon.tech)
+Cloud Infrastructure            Cloudflare R2 Storage (S3 API Engine)
+Networking & Gateways           Cloudflare DNS & Registrar
+Frontend Foundation             Semantic HTML5, Custom Adaptive CSS3 Layouts
 ```
