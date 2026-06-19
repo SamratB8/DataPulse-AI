@@ -36,7 +36,7 @@ DataPulse-AI uses a highly optimized, decoupled **production-grade cloud topolog
     [ Render Server Core ] ◄───────► [ Neon.tech Postgres ]
   (Flask/Pandas Processing Core)       (Permanent Cloud Memory)
 
-🛣️ Project Roadmap & Status
+###🛣️ Project Roadmap & Status
 [x] Phase 1 & 2: Decoupled Architecture Setup & Cloud Core Database Schema Design (models.py)
 
 [/] Phase 3: Frontend UI Templates & Secure User Authentication Routing (Currently In Progress)
@@ -47,7 +47,7 @@ DataPulse-AI uses a highly optimized, decoupled **production-grade cloud topolog
 
 [ ] Phase 8: MLOps, End-to-End System Integration Testing & Finalization
 
-⚡ Key Features
+###⚡ Key Features
 🏆 Gamified XP Tracking: Earn domain-specific experience points (XP) dynamically as you finish core data science modules and Python engineering tasks.
 
 📂 Direct-to-Cloud Notebook Parsing: Upload and process local .ipynb files seamlessly. The data stream leverages ijson to parse records sequentially, keeping the live server memory locked at a stable ~20 MB regardless of file size.
@@ -58,7 +58,7 @@ DataPulse-AI uses a highly optimized, decoupled **production-grade cloud topolog
 
 🔐 Secure Authentication: Enterprise-ready native session architecture complete with password hashing, encrypted tokens, and strict dashboard route protections.
 
-📦 Directory Structure
+###📦 Directory Structure
 DATAPULSE-AI/
 │
 ├── app/
@@ -71,7 +71,7 @@ DATAPULSE-AI/
 ├── requirements.txt     # Locked production dependencies (Flask, SQLAlchemy, ijson, pandas, numpy)
 └── run.py               # Live cloud application initialization script
 
-🧰 Tech Stack
+###🧰 Tech Stack
 Layer                           Technology
 Backend Core                    Flask (Python 3.x)
 Data Science Engines            Pandas, NumPy, ijson
