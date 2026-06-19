@@ -1,30 +1,31 @@
-DataPulse-AI 📊⚡
+# DataPulse-AI 📊⚡
 
 [![Development Status](https://img.shields.io/badge/status-work--in--progress-orange)](https://github.com/SamratB8/DataPulse-AI)
+[![Backend](https://img.shields.io/badge/Backend-Flask%20%7C%20Python-blue)](https://flask.palletsprojects.com/)
+[![Database](https://img.shields.io/badge/Database-PostgreSQL%20%7C%20Neon-cyan)](https://neon.tech/)
+[![Storage](https://img.shields.io/badge/Storage-Cloudflare%20R2-yellow)](https://www.cloudflare.com/products/r2/)
 
-> **⚠️ Notice:** This project is currently a **Work in Progress (WIP)**. I am actively developing the core data pipelines, analytical modules, and frontend tracking systems.
+A gamified, enterprise-architected AI/ML study tracker and productivity web application designed for data scientists and developers. **DataPulse-AI** bridges the gap between structured learning and hands-on coding by tracking domain-specific XP, validating mathematical core concepts, and securely processing user metrics over an isolated, cloud-decoupled pipeline.
 
-A gamified, enterprise-architected AI/ML study tracker and productivity web application designed for data scientists and developers. DataPulse-AI bridges the gap between structured learning and hands-on coding by tracking domain-specific XP, validating mathematical core concepts, and securely processing user metrics over an isolated, cloud-decoupled pipeline.
+> ☕ **Infrastructure Note:** This project is deployed on a modern, decoupled cloud environment. If the initial dashboard load takes a moment, the free-tier backend containers are safely completing a routine server cold-start. Subsequent features and database operations run at full speed!
 
-☕ Notice: This project is deployed on a decoupled cloud environment. If the initial dashboard load takes a moment, the backend containers are safely completing a server cold-start. Subsequent features are blazingly fast!
+---
 
-🛠️ System Architecture & Cloud Infrastructure
+## 🛠️ System Architecture & Cloud Infrastructure
 
-DataPulse-AI is built using a modern, decoupled production-grade cloud layout engineered to bypass traditional server constraints (such as RAM bottlenecks and request timeouts):
+DataPulse-AI uses a highly optimized, decoupled **production-grade cloud topology** engineered to bypass traditional server constraints like memory limits and rigid request timeouts:
 
-Application Server: Render Pro — Hosts the Flask Python runtime core, guaranteeing 24/7 high-performance availability, 25 GB of outbound bandwidth, and automated GitHub continuous integration (CI/CD).
+* **🖥️ Application Server (`Render Pro Workspace`)**: Hosts the Flask Python runtime engine. It handles core analytical routing, provides a healthy 25 GB of outbound bandwidth, and hooks directly into GitHub for automated continuous integration (CI/CD).
+* **🐘 Database Engine (`Neon.tech PostgreSQL`)**: A permanent, serverless relational database cluster isolated entirely from the compute layer. This architecture guarantees your tables, progress, and metric logs are never lost during code updates.
+* **🪣 Object Storage (`Cloudflare R2`)**: An S3-compatible asset vault built with absolute **$0 egress fees**. Massive notebook uploads stream straight here from the client's browser, completely protecting the app server's RAM.
+* **🌐 Security & Routing (`Cloudflare Registrar & DNS`)**: Manages our custom domain with zero-markup pricing, global edge caching, and automated end-to-end SSL/TLS encryption.
 
-Database Engine: Neon.tech (PostgreSQL) — A permanent, serverless, relational database cluster running completely separated from the application web service, ensuring zero data loss during code updates.
+### 🚀 Direct-to-Cloud Stream Workflow
 
-Object Storage: Cloudflare R2 (S3-Compatible) — Acts as an isolated file vault with $0 egress fees. Large uploads completely skip Render's infrastructure via a programmatic secure handshake.
-
-Networking & Domain Security: Cloudflare Registrar & DNS — Enforces zero-markup wholesale domain management, automated global edge caching, and end-to-end SSL/TLS encryption.
-
-🚀 Direct-to-Cloud Stream Workflow
-
+```text
                   [ Student Browser ]
                            │
-             (Direct Upload via Secure Presigned URL)
+         (Direct Upload via Secure Presigned URL)
                            │
                            ▼
                [ Cloudflare R2 Storage ] (Isolated File Vault)
@@ -32,12 +33,10 @@ Networking & Domain Security: Cloudflare Registrar & DNS — Enforces zero-marku
                  (Egress-Free Data Stream)
                            │
                            ▼
-    [ Render Pro Server ] ◄───────► [ Neon.tech Postgres ]
+    [ Render Server Core ] ◄───────► [ Neon.tech Postgres ]
   (Flask/Pandas Processing Core)       (Permanent Cloud Memory)
 
-
-🛠️ Project Roadmap & Status
-
+🛣️ Project Roadmap & Status
 [x] Phase 1 & 2: Decoupled Architecture Setup & Cloud Core Database Schema Design (models.py)
 
 [/] Phase 3: Frontend UI Templates & Secure User Authentication Routing (Currently In Progress)
@@ -46,43 +45,37 @@ Networking & Domain Security: Cloudflare Registrar & DNS — Enforces zero-marku
 
 [ ] Phase 6 & 7: NumPy Multi-Dimensional Matrix Algebra Validation & High-Performance Jupyter Notebook Parsing Component
 
-[ ] Phase 8: MLOps, System Testing & Finalization
+[ ] Phase 8: MLOps, End-to-End System Integration Testing & Finalization
 
-🚀 Key Features
+⚡ Key Features
+🏆 Gamified XP Tracking: Earn domain-specific experience points (XP) dynamically as you finish core data science modules and Python engineering tasks.
 
-Gamified XP Tracking: Earn domain-specific experience points (XP) as you complete data science and Python engineering milestones.
+📂 Direct-to-Cloud Notebook Parsing: Upload and process local .ipynb files seamlessly. The data stream leverages ijson to parse records sequentially, keeping the live server memory locked at a stable ~20 MB regardless of file size.
 
-Direct-to-Cloud Jupyter Notebook Parsing: Upload and process local .ipynb files effortlessly. Uses ijson and stream looping to keep the server's RAM footprint down to a fixed ~20 MB, regardless of the notebook size.
+🧮 Matrix Algebra Validation: An integrated interactive evaluation playground built to calculate, check, and visually validate multi-dimensional NumPy array operations.
 
-Matrix Algebra Validation: Integrated interactive canvas to evaluate and check complex NumPy multi-dimensional array math matrix logic.
+📊 Data Processing Pipelines: Experience deep real-time feedback with backend statistics powered entirely by analytical Pandas workflows.
 
-Data Processing Pipelines: Built-in dashboard analytics tracking backed by custom Pandas workflow calculation pipelines.
-
-Secure Authentication: Native Python session management featuring secure cryptography registration, login, and protected tracking dashboard routes.
+🔐 Secure Authentication: Enterprise-ready native session architecture complete with password hashing, encrypted tokens, and strict dashboard route protections.
 
 📦 Directory Structure
-
 DATAPULSE-AI/
 │
 ├── app/
-│   ├── static/          # Custom responsive CSS layouts and frontend assets
-│   ├── templates/       # HTML5 Jinja layouts (base, dashboard, login, register, etc.)
-│   ├── __init__.py      # App factory initialization, R2 storage connections & extensions
-│   ├── models.py        # PostgreSQL production database schemas and ORM relationships
-│   └── routes.py        # Controller routes, API endpoints, and presigned URL generators
+│   ├── static/          # Custom responsive CSS layouts, interactive components, and visual assets
+│   ├── templates/       # HTML5 Jinja2 UI layouts (base structural layout, dashboard, authentication)
+│   ├── __init__.py      # App factory lifecycle configuration, R2 storage connections & extensions
+│   ├── models.py        # Object-Relational PostgreSQL production database schemas and metrics mapping
+│   └── routes.py        # Controller architecture, analytical API endpoints, and presigned URL providers
 │
-├── requirements.txt     # Production dependencies (Flask, SQLAlchemy, ijson, pandas, numpy)
-└── run.py               # Application cloud entry point
+├── requirements.txt     # Locked production dependencies (Flask, SQLAlchemy, ijson, pandas, numpy)
+└── run.py               # Live cloud application initialization script
 
-
-🛠️ Tech Stack
-
-Backend Framework: Flask (Python 3.x)
-
-Database ORM: SQLAlchemy / PostgreSQL (Neon.tech)
-
-Cloud Storage: Cloudflare R2 Core (S3 API Client)
-
-Data Science Engine: Pandas, NumPy, ijson
-
-Frontend UI: HTML5, CSS3 (Pure Responsive Flexbox Layouts)
+🧰 Tech Stack
+Layer                           Technology
+Backend Core                    Flask (Python 3.x)
+Data Science Engines            Pandas, NumPy, ijson
+Database & ORM                  PostgreSQL / SQLAlchemy ORM (Hosted via Neon.tech)
+Cloud Infrastructure            Cloudflare R2 Storage (S3 API Engine)
+Networking & Gateways           Cloudflare DNS & Registrar
+Frontend Foundation             Semantic HTML5, Custom Adaptive CSS3 Layouts
