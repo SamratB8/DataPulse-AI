@@ -60,6 +60,7 @@ DataPulse-AI uses a highly optimized, decoupled **production-grade cloud topolog
 🔐 Secure Authentication: Enterprise-ready native session architecture complete with password hashing, encrypted tokens, and strict dashboard route protections.
 
 ### 📦 Directory Structure
+```text
 DATAPULSE-AI/
 │
 ├── app/
@@ -71,8 +72,10 @@ DATAPULSE-AI/
 │
 ├── requirements.txt     # Locked production dependencies (Flask, SQLAlchemy, ijson, pandas, numpy)
 └── run.py               # Live cloud application initialization script
+```
 
 ### 🧰 Tech Stack
+```text
 Layer                           Technology
 Backend Core                    Flask (Python 3.x)
 Data Science Engines            Pandas, NumPy, ijson
@@ -80,3 +83,4 @@ Database & ORM                  PostgreSQL / SQLAlchemy ORM (Hosted via Neon.tec
 Cloud Infrastructure            Cloudflare R2 Storage (S3 API Engine)
 Networking & Gateways           Cloudflare DNS & Registrar
 Frontend Foundation             Semantic HTML5, Custom Adaptive CSS3 Layouts
+```
