@@ -13,14 +13,17 @@ A gamified, enterprise-architected AI/ML study tracker and productivity web appl
 
 ## 🛠️ System Architecture & Cloud Infrastructure
 
-DataPulse-AI uses a highly optimized, decoupled **production-grade cloud topology** engineered to bypass traditional server constraints like memory limits and rigid request timeouts:
+DataPulse-AI is built using a modern, decoupled production-grade cloud topology engineered to bypass traditional server constraints like memory limits and rigid request timeouts:
 
-* **🖥️ Application Server (`Render Pro Workspace`)**: Hosts the Flask Python runtime engine. It handles core analytical routing, provides a healthy 25 GB of outbound bandwidth, and hooks directly into GitHub for automated continuous integration (CI/CD).
-* **🐘 Database Engine (`Neon.tech PostgreSQL`)**: A permanent, serverless relational database cluster isolated entirely from the compute layer. This architecture guarantees your tables, progress, and metric logs are never lost during code updates.
-* **🪣 Object Storage (`Cloudflare R2`)**: An S3-compatible asset vault built with absolute **$0 egress fees**. Massive notebook uploads stream straight here from the client's browser, completely protecting the app server's RAM.
-* **🌐 Security & Routing (`Cloudflare Registrar & DNS`)**: Manages our custom domain with zero-markup pricing, global edge caching, and automated end-to-end SSL/TLS encryption.
+* 🖥️ Application Server (Render Starter Instance): Runs the Flask Python core on a dedicated, always-on virtual machine container (512 MB RAM, 0.5 CPU). Running on Render's Starter tier within your Pro Workspace guarantees 24/7 always-on availability with zero cold-starts, high-performance request handling, 25 GB of outbound bandwidth, and automated GitHub continuous integration (CI/CD).
 
-### 🚀 Direct-to-Cloud Stream Workflow
+* 🐘 Database Engine (Neon.tech PostgreSQL): A serverless, fully-compliant PostgreSQL database cluster running completely isolated from the application compute layer. This guarantees persistent progress and metric tables are never lost or corrupted during application updates.
+
+* 🪣 Object Storage (Cloudflare R2): An S3-compatible asset vault with $0 egress fees. Heavy notebook uploads bypass the main application server entirely, saving CPU cycles and keeping RAM usage flat.
+
+* 🌐 Security & Routing (Cloudflare DNS & Registrar): Direct DNS records with active edge caching, secure headers, and automated global SSL/TLS encryption.
+
+## 🚀 Direct-to-Cloud Stream Workflow
 
 ```text
                   [ Student Browser ]
@@ -36,30 +39,45 @@ DataPulse-AI uses a highly optimized, decoupled **production-grade cloud topolog
     [ Render Server Core ] ◄───────► [ Neon.tech Postgres ]
   (Flask/Pandas Processing Core)       (Permanent Cloud Memory)
 ```
+## 🛡️ Production Engineering Patterns
 
-### 🛣️ Project Roadmap & Status
-[x] Phase 1 & 2: Decoupled Architecture Setup & Cloud Core Database Schema Design (models.py)
+To ensure high availability and enterprise-grade reliability, the codebase employs the following advanced operational patterns:
 
-[/] Phase 3: Frontend UI Templates & Secure User Authentication Routing (Currently In Progress)
+### 1. Memory-Safe Event-Driven Parsing
 
-[ ] Phase 4 & 5: Pandas Workflow Pipelines & Analytics Tracking Engine
+Rather than decoding entire raw .ipynb documents directly into system memory, the ingestion pipeline reads files sequentially as an active character stream. The parser filters and processes target metadata keys on the fly, locking memory utilization to a flat, safe footprint.
 
-[ ] Phase 6 & 7: NumPy Multi-Dimensional Matrix Algebra Validation & High-Performance Jupyter Notebook Parsing Component
+### 2. Pessimistic Disconnect Handling
 
-[ ] Phase 8: MLOps, End-to-End System Integration Testing & Finalization
+To counter natural sleep cycles of serverless cloud database connections, the database connection engine initiates a fast pre-ping handshake on every transaction. If a connection socket has dropped, it is silently recycled to prevent unhandled database disconnect errors (OperationalError).
 
-### ⚡ Key Features
-🏆 Gamified XP Tracking: Earn domain-specific experience points (XP) dynamically as you finish core data science modules and Python engineering tasks.
+### 3. Multi-Threaded Resource Gateway
 
-📂 Direct-to-Cloud Notebook Parsing: Upload and process local .ipynb files seamlessly. The data stream leverages ijson to parse records sequentially, keeping the live server memory locked at a stable ~20 MB regardless of file size.
+Render's production server core runs over a multi-worker Gunicorn WSGI gateway configuration. By dividing tasks across isolated processing threads, the application seamlessly handles concurrent file streams without causing interface blocking.
 
-🧮 Matrix Algebra Validation: An integrated interactive evaluation playground built to calculate, check, and visually validate multi-dimensional NumPy array operations.
+## 🛣️ Project Roadmap & Status
+* [x] Phase 1 & 2: Decoupled Architecture Setup & Cloud Core Database Schema Design (models.py)
 
-📊 Data Processing Pipelines: Experience deep real-time feedback with backend statistics powered entirely by analytical Pandas workflows.
+* [/] Phase 3: Frontend UI Templates & Secure User Authentication Routing (Currently In Progress)
 
-🔐 Secure Authentication: Enterprise-ready native session architecture complete with password hashing, encrypted tokens, and strict dashboard route protections.
+* [ ] Phase 4 & 5: Pandas Workflow Pipelines & Analytics Tracking Engine
 
-### 📦 Directory Structure
+* [ ] Phase 6 & 7: NumPy Multi-Dimensional Matrix Algebra Validation & High-Performance Jupyter Notebook Parsing Component
+
+* [ ] Phase 8: MLOps, End-to-End System Integration Testing & Finalization
+
+## ⚡ Key Features
+* 🏆 Gamified XP Tracking: Earn domain-specific experience points (XP) dynamically as you finish core data science modules and Python engineering tasks.
+
+* 📂 Direct-to-Cloud Notebook Parsing: Upload and process local .ipynb files seamlessly. The data stream leverages ijson to parse records sequentially, keeping the live server memory locked at a stable ~20 MB regardless of file size.
+
+* 🧮 Matrix Algebra Validation: An integrated interactive evaluation playground built to calculate, check, and visually validate multi-dimensional NumPy array operations.
+
+* 📊 Data Processing Pipelines: Experience deep real-time feedback with backend statistics powered entirely by analytical Pandas workflows.
+
+* 🔐 Secure Authentication: Enterprise-ready native session architecture complete with password hashing, encrypted tokens, and strict dashboard route protections.
+
+## 📦 Directory Structure
 ```text
 DATAPULSE-AI/
 │
@@ -74,7 +92,7 @@ DATAPULSE-AI/
 └── run.py               # Live cloud application initialization script
 ```
 
-### 🧰 Tech Stack
+## 🧰 Tech Stack
 ```text
 Layer                           Technology
 Backend Core                    Flask (Python 3.x)
