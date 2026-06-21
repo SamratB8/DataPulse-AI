@@ -7,8 +7,6 @@
 
 A gamified, enterprise-architected AI/ML study tracker and productivity web application designed for data scientists and developers. **DataPulse-AI** bridges the gap between structured learning and hands-on coding by tracking domain-specific XP, validating mathematical core concepts, and securely processing user metrics over an isolated, cloud-decoupled pipeline.
 
-> ☕ **Infrastructure Note:** This project is deployed on a modern, decoupled cloud environment. If the initial dashboard load takes a moment, the free-tier backend containers are safely completing a routine server cold-start. Subsequent features and database operations run at full speed!
-
 ---
 
 ## 🛠️ System Architecture & Cloud Infrastructure
